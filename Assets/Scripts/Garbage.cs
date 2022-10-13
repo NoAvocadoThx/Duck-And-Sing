@@ -10,7 +10,7 @@ public class Garbage : MonoBehaviour
     public GameObject Target;
 
     public Duck DuckObject;
-
+    [SerializeField] private Beat B;
     [SerializeField] private float ThrowSpeed = 6.0f;
 
     // private
@@ -27,6 +27,7 @@ public class Garbage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         ThrowSpeed = Random.Range(6f, 10f);
     }
 
@@ -72,11 +73,12 @@ public class Garbage : MonoBehaviour
     }
 
     /**********************************************************************/
-    public void Setup(GameObject Origin_In, GameObject Target_In, Duck Duck_In)
+    public void Setup(GameObject Origin_In, GameObject Target_In, Duck Duck_In, Beat B_In)
     {
         Origin = Origin_In;
         Target = Target_In;
         DuckObject = Duck_In;
+        B = B_In;
     }
 
 }

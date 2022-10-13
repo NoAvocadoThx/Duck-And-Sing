@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Beat : MonoBehaviour
 {
-    [SerializeField] private float BPM = 200;
+    [SerializeField] internal float BPM = 200;
      private float beat;
 
     // Start is called before the first frame update
