@@ -496,6 +496,7 @@ MonoBehaviour:
   AngerDecreaseValue: 5
   GarbageObject: {fileID: 4494434781458996742, guid: a351dd054a201514487037b9f02b145b, type: 3}
   DuckObject: {fileID: 205158750}
+  B: {fileID: 7363201811464160404, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
 --- !u!4 &281133712
 Transform:
   m_ObjectHideFlags: 0

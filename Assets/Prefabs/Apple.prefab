@@ -122,6 +122,7 @@ MonoBehaviour:
   Origin: {fileID: 0}
   Target: {fileID: 0}
   DuckObject: {fileID: 0}
+  B: {fileID: 0}
   ThrowSpeed: 10
 --- !u!58 &1517283237
 CircleCollider2D:
