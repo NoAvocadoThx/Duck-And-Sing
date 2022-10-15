@@ -27,8 +27,11 @@ public class Garbage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        B = FindObjectOfType<Beat>();   
-        ThrowSpeed = Random.Range(6f*B.beat, 10f *B.beat);
+        B = FindObjectOfType<Beat>();
+        if (B != null)
+        {
+            ThrowSpeed = Random.Range(6f * B.beat, 10f * B.beat);
+        }
     }
 
     /**********************************************************************/

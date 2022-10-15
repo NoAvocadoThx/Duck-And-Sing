@@ -475,7 +475,6 @@ MonoBehaviour:
   AngerDecreaseValue: 5
   GarbageObject: {fileID: 4494434781458996742, guid: a351dd054a201514487037b9f02b145b, type: 3}
   DuckObject: {fileID: 205158750}
-  B: {fileID: 7363201811464160404, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
 --- !u!4 &281133712
 Transform:
   m_ObjectHideFlags: 0
@@ -1431,6 +1430,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &752524040
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160403, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363201811464160405, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
+      propertyPath: m_Name
+      value: Beat
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa7415129d3ee034cb4bd3f08b728751, type: 3}
 --- !u!1 &784652793
 GameObject:
   m_ObjectHideFlags: 0
