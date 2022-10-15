@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 924350058331832806}
   - component: {fileID: 5483210520110535694}
   - component: {fileID: 4324830744475214066}
+  - component: {fileID: 1675043420}
   m_Layer: 0
   m_Name: PromptNote1
   m_TagString: Untagged
@@ -135,3 +136,23 @@ MonoBehaviour:
     m_PostInfinity: 1
     m_RotationOrder: 4
   FlotingSpeed: 0.6
+--- !u!95 &1675043420
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395038899347664648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3927e57455acd6148a9220148ddff3c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

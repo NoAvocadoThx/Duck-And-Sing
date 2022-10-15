@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Duck
+  m_Name: CorrectPrompt
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,15 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -7680252103798239524, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
+      value: {fileID: 203894707262023572, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
     - time: 0.06666667
-      value: {fileID: -4161389160381234640, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
+      value: {fileID: -2011412612036983366, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
     - time: 0.11666667
-      value: {fileID: 402918271455395017, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
+      value: {fileID: 2053719668135419293, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
     - time: 0.16666667
-      value: {fileID: 5775014644877474701, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
+      value: {fileID: -6415160527855421042, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
     - time: 0.23333333
-      value: {fileID: -6253360382742066941, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
+      value: {fileID: -8265649554163657122, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,11 +48,11 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -7680252103798239524, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
-    - {fileID: -4161389160381234640, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
-    - {fileID: 402918271455395017, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
-    - {fileID: 5775014644877474701, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
-    - {fileID: -6253360382742066941, guid: b6fb0d541d6e4e54face92c6a2e56a0d, type: 3}
+    - {fileID: 203894707262023572, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
+    - {fileID: -2011412612036983366, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
+    - {fileID: 2053719668135419293, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
+    - {fileID: -6415160527855421042, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
+    - {fileID: -8265649554163657122, guid: 99e1beacf34e67c42afd2d344aefcc3c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -63,7 +63,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -77,4 +77,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.23333333
+    functionName: OnCorrectPromptAnimationEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -24,6 +24,11 @@ public class PromptNote : MonoBehaviour
     {
         return NoteIndex;
     }
+    /**********************************************************************/
+    public void OnCorrectPromptAnimationEnd()
+    {
+        gameObject.SetActive(false);
+    }
 
     /**********************************************************************/
     private void Start()
@@ -41,6 +46,8 @@ public class PromptNote : MonoBehaviour
        
         transform.position = new Vector3(transform.position.x, FloatingCuve.Evaluate(((Time.time * FlotingSpeed) % FloatingCuve.length)) + InitialYPosition, transform.position.z);
     }
+
+
 
     /**********************************************************************/
     IEnumerator ScaleNote(float EndScaleValue, float Duration)

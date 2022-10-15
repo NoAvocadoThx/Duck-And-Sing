@@ -37,6 +37,7 @@ public class Prompt : MonoBehaviour
     private int PlayerInputNoteIndex = 0;
     private bool HasSubscribedToEvent = false;
     private bool HasPlayerSing = false;
+    private Animator NoteAnimator;
 
 
 
@@ -56,6 +57,7 @@ public class Prompt : MonoBehaviour
         HasSubscribedToEvent = false;
         HasPlayerSing = false;
         PromptList = new List<GameObject> ();
+     
       
     }
 
@@ -145,7 +147,11 @@ public class Prompt : MonoBehaviour
             // if player's input matches current prompt
             if(PlayerInputNoteIndex == PromptList[CurrentProcessingActionIndex].GetComponent<PromptNote>().GetNoteIndex() && HasPlayerSing)
             {
-                PromptList[CurrentProcessingActionIndex].SetActive(false);
+                NoteAnimator = PromptList[CurrentProcessingActionIndex].GetComponent<PromptNote>().GetComponent<Animator>();
+                NoteAnimator.SetBool("IsCorrect", true);
+                
+                //PromptList[CurrentProcessingActionIndex].SetActive(false);
+
                 CurrentProcessingActionIndex++;
                 HasPlayerSing = false;
                 if(KidObject !=null)
