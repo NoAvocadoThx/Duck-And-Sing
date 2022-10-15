@@ -10,19 +10,27 @@ public class PromptNote : MonoBehaviour
     [SerializeField] private float START_SCALE = 0.1f;
     [SerializeField] private float SCALE_TIME = 0.1f;
 
+
+    public AnimationCurve FloatingCuve;
+    [SerializeField] private float FlotingSpeed = 0.6f;
+
     private float ScaleVal;
+    private float InitialYPosition;
     int NoteIndex { get { return _NoteIndex; } }
 
     private void Start()
     {
         
         ScaleVal = START_SCALE;
+        FlotingSpeed = Random.Range(0.55f, 0.65f);
+        InitialYPosition = transform.position.y;
         StartCoroutine(ScaleNote(MAX_SCALE, SCALE_TIME));
     }
 
     private void Update()
     {
-        
+       
+        transform.position = new Vector3(transform.position.x, FloatingCuve.Evaluate(((Time.time * FlotingSpeed) % FloatingCuve.length)) + InitialYPosition, transform.position.z);
     }
 
     IEnumerator ScaleNote(float EndScaleValue, float Duration)

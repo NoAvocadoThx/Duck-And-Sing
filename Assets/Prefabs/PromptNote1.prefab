@@ -101,3 +101,37 @@ MonoBehaviour:
   MAX_SCALE: 0.6
   START_SCALE: 0.1
   SCALE_TIME: 0.13
+  FloatingCuve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.25
+      inSlope: 0.2165816
+      outSlope: 0.2165816
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.39337543
+    - serializedVersion: 3
+      time: 0.49224854
+      value: 0.2878723
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.0061822
+      value: -0.25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  FlotingSpeed: 0.6
