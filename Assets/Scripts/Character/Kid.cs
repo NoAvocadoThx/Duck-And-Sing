@@ -48,9 +48,13 @@ public class Kid : MonoBehaviour
     }
 
     /**********************************************************************/
-    public void IncreaseAngerValue()
+    public void IncreaseAngerValue(bool HasBonus = false)
     {
-        AngerValue += AngerIncreaseValue;
+        if(HasBonus)
+        {
+            Debug.Log("Bonus Increase");
+        }
+        AngerValue += HasBonus ? 2 * AngerIncreaseValue : AngerIncreaseValue;
         AngerValue = Mathf.Min(AngerValue, 100);
     }
 

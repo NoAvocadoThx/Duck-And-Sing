@@ -49,6 +49,11 @@ public class Duck : MonoBehaviour
         SingIcons.SetActive(false);
 
         State = CHARACTER_STATE.IDLE;
+
+        EventManager.OnSingAction1 += SetIsDuckSinging;
+        EventManager.OnSingAction2 += SetIsDuckSinging;
+        EventManager.OnSingAction3 += SetIsDuckSinging;
+        EventManager.OnSingAction4 += SetIsDuckSinging;
     }
 
     // Update is called once per frame
@@ -77,8 +82,7 @@ public class Duck : MonoBehaviour
                         State = CHARACTER_STATE.IDLE;
                         DuckSingTimer = SingDuration;
                         HasDuckSung = true;
-                        KidObject.IncreaseAngerValue();
-
+                       
                        
                     }
                  
@@ -159,33 +163,8 @@ public class Duck : MonoBehaviour
             return;
         }
 
-        // TODO
-        // only valid when on beat
-        if(Input.GetButtonDown("Sing1"))
-        {
-            HasDuckSung = false;
-            State = CHARACTER_STATE.SING;
-            Debug.Log("Pressed sing 1");
-
-        }
-        if (Input.GetButtonDown("Sing2"))
-        {
-            HasDuckSung = false;
-            State = CHARACTER_STATE.SING;
-            Debug.Log("Pressed sing 2");
-        }
-        if (Input.GetButtonDown("Sing3"))
-        {
-            HasDuckSung = false;
-            State = CHARACTER_STATE.SING;
-            Debug.Log("Pressed sing 3");
-        }
-        if (Input.GetButtonDown("Sing4"))
-        {
-            HasDuckSung = false;
-            State = CHARACTER_STATE.SING;
-            Debug.Log("Pressed sing 4");
-        }
+   
+      
     }
 
     /**********************************************************************/
@@ -206,7 +185,23 @@ public class Duck : MonoBehaviour
 
         KidObject.DecreaseAngerValue();
     }
+    /**********************************************************************/
+    private void SetIsDuckSinging()
+    {
+        HasDuckSung = false;
+        State = CHARACTER_STATE.SING;
+        Debug.Log("Duck set to SING");
+    }
 
+    /**********************************************************************/
+    private void OnDisable()
+    {
+
+        EventManager.OnSingAction1 -= SetIsDuckSinging;
+        EventManager.OnSingAction2 -= SetIsDuckSinging;
+        EventManager.OnSingAction3 -= SetIsDuckSinging;
+        EventManager.OnSingAction4 -= SetIsDuckSinging;
+    }
     /**********************************************************************/
     private void Reset()
     {

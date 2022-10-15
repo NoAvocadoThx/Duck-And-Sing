@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59fa68001442a9408d71fceee3ffc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _NoteIndex: 0
+  _NoteIndex: 4
   MAX_SCALE: 0.6
   START_SCALE: 0.1
   SCALE_TIME: 0.1

@@ -16,8 +16,16 @@ public class PromptNote : MonoBehaviour
 
     private float ScaleVal;
     private float InitialYPosition;
-    int NoteIndex { get { return _NoteIndex; } }
 
+    int NoteIndex { get { return _NoteIndex; }  }
+
+    /**********************************************************************/
+    public int GetNoteIndex()
+    {
+        return NoteIndex;
+    }
+
+    /**********************************************************************/
     private void Start()
     {
         
@@ -27,12 +35,14 @@ public class PromptNote : MonoBehaviour
         StartCoroutine(ScaleNote(MAX_SCALE, SCALE_TIME));
     }
 
+    /**********************************************************************/
     private void Update()
     {
        
         transform.position = new Vector3(transform.position.x, FloatingCuve.Evaluate(((Time.time * FlotingSpeed) % FloatingCuve.length)) + InitialYPosition, transform.position.z);
     }
 
+    /**********************************************************************/
     IEnumerator ScaleNote(float EndScaleValue, float Duration)
     {
         float time = 0;
