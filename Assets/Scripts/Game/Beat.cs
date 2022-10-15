@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Beat : MonoBehaviour
 {
-    [SerializeField] internal float BPM = 200;
-     private float beat;
+    [SerializeField] private float BPM = 200;
+     internal float beat;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class Beat : MonoBehaviour
     {
         ChangeBPM();
 
-        Time.timeScale = beat;
+        //Time.timeScale = beat;
     }
 
     void ChangeBPM()
