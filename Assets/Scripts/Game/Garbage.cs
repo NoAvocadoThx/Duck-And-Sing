@@ -27,8 +27,8 @@ public class Garbage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        ThrowSpeed = Random.Range(6f, 10f);
+        B = FindObjectOfType<Beat>();   
+        ThrowSpeed = Random.Range(6f*B.beat, 10f *B.beat);
     }
 
     /**********************************************************************/
@@ -38,6 +38,8 @@ public class Garbage : MonoBehaviour
         if (Origin == null || Target == null) return;
         OriginX = Origin.transform.position.x;
         TargetX = Target.transform.position.x;
+
+       
 
         DistanceBetweenOriginAndTarget = OriginX - TargetX;
 
@@ -64,6 +66,8 @@ public class Garbage : MonoBehaviour
             }
         }
 
+        
+
     }
 
     /**********************************************************************/
@@ -73,12 +77,12 @@ public class Garbage : MonoBehaviour
     }
 
     /**********************************************************************/
-    public void Setup(GameObject Origin_In, GameObject Target_In, Duck Duck_In, Beat B_In)
+    public void Setup(GameObject Origin_In, GameObject Target_In, Duck Duck_In)
     {
         Origin = Origin_In;
         Target = Target_In;
         DuckObject = Duck_In;
-        B = B_In;
+        //B = B_In;
     }
 
 }

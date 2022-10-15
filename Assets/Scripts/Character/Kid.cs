@@ -13,7 +13,7 @@ public class Kid : MonoBehaviour
     // public 
     public GameObject GarbageObject;
     public GameObject DuckObject;
-    public Beat B;
+    
 
     // private 
     private float ThrowTimer;
@@ -74,6 +74,6 @@ public class Kid : MonoBehaviour
     public void ThrowGarbage()
     {
         Instantiate(GarbageObject, transform.position, transform.rotation * Quaternion.Euler(0f, 0f, 180f));
-        GarbageObject.GetComponent<Garbage>().Setup(gameObject, DuckObject, DuckObject.GetComponent<Duck>(), B.GetComponent<Beat>());
+        GarbageObject.GetComponent<Garbage>().Setup(gameObject, DuckObject, DuckObject.GetComponent<Duck>());
     }
 }
