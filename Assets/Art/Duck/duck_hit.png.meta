@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d57264d36184d5649ac2985cf0edde80
+guid: 95975144c6f9c7149b236f3cb51484d8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 450
-  spriteBorder: {x: 0, y: 0, z: 3162, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -129,10 +129,31 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: duck_sing_ani_0
+      name: duck_hit_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
+        y: 0
+        width: 440
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 10, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e238dcca1ff2cf41882586be30f3efb
+      internalID: -776031917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_hit_1
+      rect:
+        serializedVersion: 2
+        x: 449
         y: 0
         width: 440
         height: 450
@@ -143,35 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bfd5a354d68eca47a0c27c1314e8c18
-      internalID: -92596141
+      spriteID: f812ba3775b242645ae0409ba823d515
+      internalID: -1004032601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: duck_sing_ani_1
-      rect:
-        serializedVersion: 2
-        x: 459
-        y: 0
-        width: 440
-        height: 450
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fcb4cd1e9d107a4cb7f8d7c95e3ef55
-      internalID: 1642489872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: duck_sing_ani_2
+      name: duck_hit_2
       rect:
         serializedVersion: 2
         x: 898
@@ -185,17 +185,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d72117e9f0511c54885d9aec5ea692b3
-      internalID: 1511994299
+      spriteID: 3736356978221594e9b240998dba9800
+      internalID: -478462866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: duck_sing_ani_3
+      name: duck_hit_3
       rect:
         serializedVersion: 2
-        x: 1359
+        x: 1358
         y: 0
         width: 440
         height: 450
@@ -206,17 +206,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b09694115544294497b0b853976a921
-      internalID: 216599323
+      spriteID: ceaf3168f8f2ffc449da250a4de10d2c
+      internalID: 1848569779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: duck_sing_ani_4
+      name: duck_hit_4
       rect:
         serializedVersion: 2
-        x: 1814
+        x: 1809
         y: 0
         width: 440
         height: 450
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b768a506e6fd55246ba822e575637a91
-      internalID: 2069983352
+      spriteID: 7a795ee7cf0c19b4ab2ba2ec5abfc2e8
+      internalID: -1105119032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: duck_sing_ani_5
+      name: duck_hit_5
       rect:
         serializedVersion: 2
         x: 2259
@@ -248,17 +248,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7004d29305a96aa4b93c34877ec3628c
-      internalID: 1584025571
+      spriteID: bad9524ec94bb1d4f8f3760062aef7b5
+      internalID: 1011403550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: duck_sing_ani_6
+      name: duck_hit_6
       rect:
         serializedVersion: 2
-        x: 2698
+        x: 2709
         y: 0
         width: 440
         height: 450
@@ -269,29 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ed6545e73115c44fb0218064e4bf706
-      internalID: -1141166105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: duck_sing_ani_7
-      rect:
-        serializedVersion: 2
-        x: 3159
-        y: 0
-        width: 440
-        height: 450
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d68a72ff6163e64e8ba6fd6ada72ab4
-      internalID: -1129554010
+      spriteID: 0b478e25c45238d4bb08395363a7d369
+      internalID: 870608765
       vertices: []
       indices: 
       edges: []
@@ -300,21 +279,20 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      duck_sing_ani_5: 1584025571
-      duck_sing_ani_0: -92596141
-      duck_sing_ani_3: 216599323
-      duck_sing_ani_2: 1511994299
-      duck_sing_ani_6: -1141166105
-      duck_sing_ani_7: -1129554010
-      duck_sing_ani_4: 2069983352
-      duck_sing_ani_1: 1642489872
+      duck_hit_4: -1105119032
+      duck_hit_2: -478462866
+      duck_hit_3: 1848569779
+      duck_hit_1: -1004032601
+      duck_hit_6: 870608765
+      duck_hit_5: 1011403550
+      duck_hit_0: -776031917
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

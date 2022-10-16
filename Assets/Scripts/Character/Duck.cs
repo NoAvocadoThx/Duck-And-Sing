@@ -82,6 +82,7 @@ public class Duck : MonoBehaviour
                 }
             case CHARACTER_STATE.SING:
                 {
+                    DuckAnimator.SetBool("IsSinging", true);
                     DuckSingTimer -= Time.deltaTime;
                     if(DuckSingTimer <= 0 && !HasDuckSung)
                     {                 
@@ -103,7 +104,7 @@ public class Duck : MonoBehaviour
             case CHARACTER_STATE.HIT:
                 {
 
-                    
+                    DuckAnimator.SetBool("IsHit", true);
                     DuckStunTimer -= Time.deltaTime;
                     if(DuckStunTimer <=0)
                     {                     
@@ -136,6 +137,7 @@ public class Duck : MonoBehaviour
             SingIcon2.SetActive(false);
             SingIcon3.SetActive(false);
             SingIcon4.SetActive(false);
+            DuckAnimator.SetBool("IsSinging", false);
         }
 
         if (State == CHARACTER_STATE.HIT)
@@ -144,6 +146,7 @@ public class Duck : MonoBehaviour
         }
         else
         {
+            DuckAnimator.SetBool("IsHit", false);
             StunText.SetActive(false);
         }
 
@@ -175,10 +178,10 @@ public class Duck : MonoBehaviour
             State = CHARACTER_STATE.HIT;
             // Blink twice
             // Should do it with curve
-            Invoke("EnableBlink", 0f);
+           /* Invoke("EnableBlink", 0f);
             Invoke("DisableBlink", 0.1f);
             Invoke("EnableBlink", 0.2f);
-            Invoke("DisableBlink", 0.3f);
+            Invoke("DisableBlink", 0.3f);*/
 
             Debug.Log("Player got hit");
         }
