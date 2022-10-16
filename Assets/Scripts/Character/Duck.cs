@@ -20,7 +20,6 @@ public class Duck : MonoBehaviour
     public GameObject SingIcon2;
     public GameObject SingIcon3;
     public GameObject SingIcon4;
-    public GameObject StunText;
 
     public AudioClip Sing1Clip;
     public AudioClip Sing2Clip;
@@ -139,16 +138,15 @@ public class Duck : MonoBehaviour
             SingIcon3.SetActive(false);
             SingIcon4.SetActive(false);
             DuckAnimator.SetBool("IsSinging", false);
+            
         }
 
         if (State == CHARACTER_STATE.HIT)
         {
-            StunText.SetActive(true);
         }
         else
         {
             DuckAnimator.SetBool("IsHit", false);
-            StunText.SetActive(false);
         }
 
         if (State == CHARACTER_STATE.DUCK)
@@ -192,6 +190,7 @@ public class Duck : MonoBehaviour
     /**********************************************************************/
     private void SetIsDuckSinging1()
     {
+        if (State == CHARACTER_STATE.SING) return; // if we are already in sing state, we can't sing
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon1.SetActive(true);
@@ -201,6 +200,7 @@ public class Duck : MonoBehaviour
     /**********************************************************************/
     private void SetIsDuckSinging2()
     {
+        if (State == CHARACTER_STATE.SING) return;
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon2.SetActive(true);
@@ -210,6 +210,7 @@ public class Duck : MonoBehaviour
     /**********************************************************************/
     private void SetIsDuckSinging3()
     {
+        if (State == CHARACTER_STATE.SING) return;
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon3.SetActive(true);
@@ -219,6 +220,7 @@ public class Duck : MonoBehaviour
     /**********************************************************************/
     private void SetIsDuckSinging4()
     {
+        if (State == CHARACTER_STATE.SING) return;
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon4.SetActive(true);
