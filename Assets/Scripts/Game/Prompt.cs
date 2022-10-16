@@ -56,9 +56,7 @@ public class Prompt : MonoBehaviour
         _IsPromptShowing = false;
         HasSubscribedToEvent = false;
         HasPlayerSing = false;
-        PromptList = new List<GameObject> ();
-     
-      
+        PromptList = new List<GameObject> ();     
     }
 
     // Update is called once per frame
@@ -139,9 +137,7 @@ public class Prompt : MonoBehaviour
 
     /**********************************************************************/
     private bool HandleMatchingPrompt()
-    {
-       
-
+    {      
         if (_IsPromptShowing && CurrentProcessingActionIndex < PromptCount)
         {
             // if player's input matches current prompt

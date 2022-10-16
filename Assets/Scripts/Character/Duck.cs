@@ -82,8 +82,6 @@ public class Duck : MonoBehaviour
                         State = CHARACTER_STATE.IDLE;
                         DuckSingTimer = SingDuration;
                         HasDuckSung = true;
-                       
-                       
                     }
                  
                     break;
@@ -162,9 +160,6 @@ public class Duck : MonoBehaviour
             State = CHARACTER_STATE.DUCK;
             return;
         }
-
-   
-      
     }
 
     /**********************************************************************/

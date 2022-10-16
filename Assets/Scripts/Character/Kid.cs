@@ -2,23 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ANGER_LEVEL { NONE, LOW, MEDIUM, HIGH, FEVER };
+
 public class Kid : MonoBehaviour
 {
- 
+
     // serialize fields
     [SerializeField][Range(0, 100)] private int AngerValue = 0;
     [SerializeField] private int AngerIncreaseValue = 2;
     [SerializeField] private int AngerDecreaseValue = 5;
 
     // public 
-    public GameObject GarbageObject;
+    public List<GameObject> GarbageObjectPool;
     public GameObject DuckObject;
     
 
     // private 
     private float ThrowTimer;
     private bool ShouldThrow;
-  
+
+    private int GarbageIndex;
+    private int GarbageCount;
+
+    private ANGER_LEVEL KidAngryLevel;
     // Start is called before the first frame update
     /**********************************************************************/
     void Start()
@@ -26,13 +32,39 @@ public class Kid : MonoBehaviour
         AngerValue = 0;
         ThrowTimer = Random.Range(1.0f, 5.0f);
 
-
+        GarbageIndex = 0;
+        GarbageCount = GarbageObjectPool.Count;
+        KidAngryLevel = ANGER_LEVEL.NONE;
     }
 
     // Update is called once per frame
     /**********************************************************************/
     void Update()
     {
+        // set different level of anger
+        if (AngerValue <= 0)
+        {
+            KidAngryLevel = ANGER_LEVEL.NONE;
+        }
+        else if (AngerValue <= 33 && AngerValue > 0)
+        {
+            KidAngryLevel = ANGER_LEVEL.LOW;
+        }
+        else if (AngerValue <= 56 && AngerValue > 33)
+        {
+            KidAngryLevel = ANGER_LEVEL.MEDIUM;
+        }
+        else if (AngerValue <= 85 && AngerValue > 56)
+        {
+            KidAngryLevel = ANGER_LEVEL.HIGH;
+        }
+        else
+        {
+            KidAngryLevel = ANGER_LEVEL.FEVER;
+        }
+
+        if (KidAngryLevel == ANGER_LEVEL.NONE) return;
+
         ThrowTimer -= Time.deltaTime;
         if(ThrowTimer <=0)
         {
@@ -42,9 +74,43 @@ public class Kid : MonoBehaviour
 
         if(ShouldThrow && AngerValue > 0)
         {
-            ThrowGarbage();
+            int IndexCount = 0;
+            GarbageIndex = Random.Range(0, GarbageCount);
+            // we find a garbage that matches the anger value
+            while (true)
+            {            
+                
+                IndexCount++;
+                if(GarbageObjectPool[GarbageIndex].GetComponent<Garbage>().GetGarbageAngerValue() == KidAngryLevel)
+                {
+                    IndexCount = 0;
+                    break;
+                }
+                else
+                {
+                    GarbageIndex++;
+                    if (GarbageIndex > GarbageCount - 1)
+                    {
+                        GarbageIndex = 0;
+                    }
+                }
+
+
+                if(IndexCount >= GarbageCount)
+                {
+                    Debug.LogError("We cannot find valid garbage to throw");
+                    GarbageIndex = 0;
+                    IndexCount = 0;
+                    break;
+                }
+            }
+
+            ThrowGarbage(GarbageIndex);
             ShouldThrow = false;
         }
+
+       
+
     }
 
     /**********************************************************************/
@@ -71,9 +137,9 @@ public class Kid : MonoBehaviour
     }
 
     /**********************************************************************/
-    public void ThrowGarbage()
+    public void ThrowGarbage(int Index)
     {
-        Instantiate(GarbageObject, transform.position, transform.rotation * Quaternion.Euler(0f, 0f, 180f));
-        GarbageObject.GetComponent<Garbage>().Setup(gameObject, DuckObject, DuckObject.GetComponent<Duck>());
+        Instantiate(GarbageObjectPool[Index], transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 180f));
+        GarbageObjectPool[Index].GetComponent<Garbage>().Setup(gameObject, DuckObject, DuckObject.GetComponent<Duck>());
     }
 }

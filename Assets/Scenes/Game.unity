@@ -473,7 +473,12 @@ MonoBehaviour:
   AngerValue: 0
   AngerIncreaseValue: 2
   AngerDecreaseValue: 5
-  GarbageObject: {fileID: 4494434781458996742, guid: a351dd054a201514487037b9f02b145b, type: 3}
+  GarbageObjectPool:
+  - {fileID: 4494434781458996742, guid: a351dd054a201514487037b9f02b145b, type: 3}
+  - {fileID: 6076768897366228107, guid: 791cad2864f1ca44abee7dde0c854507, type: 3}
+  - {fileID: 2445400967855376460, guid: 7931b81b8690d784b99136f7728694f5, type: 3}
+  - {fileID: 4988166285563120277, guid: 00d498428296762419a2873626d96815, type: 3}
+  - {fileID: 6611783622883940957, guid: 8944bfad9d08b784f963cbd9b048e308, type: 3}
   DuckObject: {fileID: 205158750}
 --- !u!4 &281133712
 Transform:

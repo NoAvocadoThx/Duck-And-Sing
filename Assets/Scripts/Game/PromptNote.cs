@@ -17,6 +17,7 @@ public class PromptNote : MonoBehaviour
     private float ScaleVal;
     private float InitialYPosition;
     private Kid KidObject;
+    float WeightedFloatingSpeed = 1.0f;
 
     int NoteIndex { get { return _NoteIndex; }  }
 
@@ -39,13 +40,14 @@ public class PromptNote : MonoBehaviour
         FlotingSpeed = Random.Range(0.55f, 0.65f);
         InitialYPosition = transform.position.y;
         KidObject = FindObjectOfType<Kid>();
+        WeightedFloatingSpeed = FlotingSpeed * ((float)KidObject.GetAngerValue() / 100.0f + 1);
         StartCoroutine(ScaleNote(MAX_SCALE, SCALE_TIME));
     }
 
     /**********************************************************************/
     private void Update()
     {
-        float WeightedFloatingSpeed = FlotingSpeed * ( (float)KidObject.GetAngerValue()/ 100.0f + 1);
+        
         transform.position = new Vector3(transform.position.x, FloatingCuve.Evaluate(((Time.time * WeightedFloatingSpeed) % FloatingCuve.length)) + InitialYPosition, transform.position.z);
     }
 

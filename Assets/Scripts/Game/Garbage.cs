@@ -10,9 +10,12 @@ public class Garbage : MonoBehaviour
     public GameObject Target;
 
     public Duck DuckObject;
+    public ANGER_LEVEL AngerLevel;
+    public bool IsBolt = false;
+
     [SerializeField] private Beat B;
     [SerializeField] private float ThrowSpeed = 6.0f;
-
+    [SerializeField] private float ThrowHeightFactor = 2.0f;
     // private
     private float OriginX;
     private float TargetX;
@@ -21,6 +24,7 @@ public class Garbage : MonoBehaviour
     private float NextFrameX;
     private float BaseY;
     private float Height;
+    
     private Vector3 MovePosition;
 
     /**********************************************************************/
@@ -31,6 +35,13 @@ public class Garbage : MonoBehaviour
         if (B != null)
         {
             ThrowSpeed = Random.Range(6f * B.beat, 10f * B.beat);
+            ThrowSpeed = Mathf.Min(6, ThrowSpeed);
+        }
+
+        ThrowHeightFactor = Random.Range(1.0f, 4.0f);
+        if (Origin != null)
+        {
+            Height = Origin.transform.position.y;
         }
     }
 
@@ -38,7 +49,7 @@ public class Garbage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Origin == null || Target == null) return;
+        if (Origin == null || Target == null) Destroy(gameObject);
         OriginX = Origin.transform.position.x;
         TargetX = Target.transform.position.x;
 
@@ -48,11 +59,13 @@ public class Garbage : MonoBehaviour
 
         // calculate x position for next frame
         NextFrameX = Mathf.MoveTowards(transform.position.x, TargetX, ThrowSpeed * Time.deltaTime);
-        // calculate y position of current frame
-        BaseY = Mathf.Lerp(Origin.transform.position.y, Origin.transform.position.y, (NextFrameX - OriginX) / DistanceBetweenOriginAndTarget);
-        // initial height
-        Height = 2 * (NextFrameX - OriginX) * (NextFrameX - TargetX) / (-0.25f * DistanceBetweenOriginAndTarget * DistanceBetweenOriginAndTarget);
-
+        if (!IsBolt)
+        {
+            // calculate y position of current frame
+            BaseY = Mathf.Lerp(Origin.transform.position.y, Origin.transform.position.y, (NextFrameX - OriginX) / DistanceBetweenOriginAndTarget);
+            // initial height
+            Height = ThrowHeightFactor * (NextFrameX - OriginX) * (NextFrameX - TargetX) / (-0.25f * DistanceBetweenOriginAndTarget * DistanceBetweenOriginAndTarget);
+        }
         MovePosition = new Vector3(NextFrameX, BaseY + Height, transform.position.z);
         transform.rotation = LookAtTarget(MovePosition - transform.position);
         transform.position = MovePosition;
@@ -76,7 +89,7 @@ public class Garbage : MonoBehaviour
     /**********************************************************************/
     public static Quaternion LookAtTarget(Vector2 r)
     {
-        return Quaternion.Euler(0, 0, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg);
+        return Quaternion.Euler(0, 180, Mathf.Atan2(r.y, r.x) * Mathf.Rad2Deg);
     }
 
     /**********************************************************************/
@@ -85,7 +98,13 @@ public class Garbage : MonoBehaviour
         Origin = Origin_In;
         Target = Target_In;
         DuckObject = Duck_In;
-        //B = B_In;
+      
+    }
+
+    /**********************************************************************/
+    public ANGER_LEVEL GetGarbageAngerValue()
+    {
+        return AngerLevel;
     }
 
 }
