@@ -4404,6 +4404,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Duck
       objectReference: {fileID: 0}
+    - target: {fileID: 3379139453541535237, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379139453541535237, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379139453541535237, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379139453541535237, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379139453541535237, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379139453541535237, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3379139453541535288, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
       propertyPath: StunText
       value: 
