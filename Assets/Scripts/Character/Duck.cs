@@ -17,7 +17,10 @@ public class Duck : MonoBehaviour
     // public
     public Animator DuckAnimator;
     public Kid KidObject;
-    public GameObject SingIcons;
+    public GameObject SingIcon1;
+    public GameObject SingIcon2;
+    public GameObject SingIcon3;
+    public GameObject SingIcon4;
     public GameObject StunText;
 
     // private
@@ -46,14 +49,17 @@ public class Duck : MonoBehaviour
         DuckSingTimer = SingDuration;
         DuckStunTimer = StunDuration;
 
-        SingIcons.SetActive(false);
+        SingIcon1.SetActive(false);
+        SingIcon2.SetActive(false);
+        SingIcon3.SetActive(false);
+        SingIcon4.SetActive(false);
 
         State = CHARACTER_STATE.IDLE;
 
-        EventManager.OnSingAction1 += SetIsDuckSinging;
-        EventManager.OnSingAction2 += SetIsDuckSinging;
-        EventManager.OnSingAction3 += SetIsDuckSinging;
-        EventManager.OnSingAction4 += SetIsDuckSinging;
+        EventManager.OnSingAction1 += SetIsDuckSinging1;
+        EventManager.OnSingAction2 += SetIsDuckSinging2;
+        EventManager.OnSingAction3 += SetIsDuckSinging3;
+        EventManager.OnSingAction4 += SetIsDuckSinging4;
     }
 
     // Update is called once per frame
@@ -124,13 +130,12 @@ public class Duck : MonoBehaviour
 
         DuckAnimator.SetBool("IsDucking", GetIsDucking());
 
-        if (State == CHARACTER_STATE.SING)
+        if (State != CHARACTER_STATE.SING)
         {
-            SingIcons.SetActive(true);
-        }
-        else
-        {
-            SingIcons.SetActive(false);
+            SingIcon1.SetActive(false);
+            SingIcon2.SetActive(false);
+            SingIcon3.SetActive(false);
+            SingIcon4.SetActive(false);
         }
 
         if (State == CHARACTER_STATE.HIT)
@@ -181,10 +186,35 @@ public class Duck : MonoBehaviour
         KidObject.DecreaseAngerValue();
     }
     /**********************************************************************/
-    private void SetIsDuckSinging()
+    private void SetIsDuckSinging1()
     {
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
+        SingIcon1.SetActive(true);
+        Debug.Log("Duck set to SING");
+    }
+    /**********************************************************************/
+    private void SetIsDuckSinging2()
+    {
+        HasDuckSung = false;
+        State = CHARACTER_STATE.SING;
+        SingIcon2.SetActive(true);
+        Debug.Log("Duck set to SING");
+    }
+    /**********************************************************************/
+    private void SetIsDuckSinging3()
+    {
+        HasDuckSung = false;
+        State = CHARACTER_STATE.SING;
+        SingIcon3.SetActive(true);
+        Debug.Log("Duck set to SING");
+    }
+    /**********************************************************************/
+    private void SetIsDuckSinging4()
+    {
+        HasDuckSung = false;
+        State = CHARACTER_STATE.SING;
+        SingIcon4.SetActive(true);
         Debug.Log("Duck set to SING");
     }
 
@@ -192,10 +222,10 @@ public class Duck : MonoBehaviour
     private void OnDisable()
     {
 
-        EventManager.OnSingAction1 -= SetIsDuckSinging;
-        EventManager.OnSingAction2 -= SetIsDuckSinging;
-        EventManager.OnSingAction3 -= SetIsDuckSinging;
-        EventManager.OnSingAction4 -= SetIsDuckSinging;
+        EventManager.OnSingAction1 -= SetIsDuckSinging1;
+        EventManager.OnSingAction2 -= SetIsDuckSinging2;
+        EventManager.OnSingAction3 -= SetIsDuckSinging3;
+        EventManager.OnSingAction4 -= SetIsDuckSinging4;
     }
     /**********************************************************************/
     private void Reset()

@@ -26,11 +26,13 @@ public class Garbage : MonoBehaviour
     private float Height;
     
     private Vector3 MovePosition;
+   
 
     /**********************************************************************/
     // Start is called before the first frame update
     void Start()
     {
+       
         B = FindObjectOfType<Beat>();
         if (B != null)
         {
@@ -49,7 +51,8 @@ public class Garbage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Origin == null || Target == null) Destroy(gameObject);
+       
+        if (Origin == null || Origin.transform == null || Target == null) Destroy(gameObject);
         OriginX = Origin.transform.position.x;
         TargetX = Target.transform.position.x;
 
@@ -98,7 +101,7 @@ public class Garbage : MonoBehaviour
         Origin = Origin_In;
         Target = Target_In;
         DuckObject = Duck_In;
-      
+        
     }
 
     /**********************************************************************/
