@@ -23,16 +23,24 @@ public class Duck : MonoBehaviour
     public GameObject SingIcon4;
     public GameObject StunText;
 
+    public AudioClip Sing1Clip;
+    public AudioClip Sing2Clip;
+    public AudioClip Sing3Clip;
+    public AudioClip Sing4Clip;
+
+    public float Volumn;
+
     // private
     private CHARACTER_STATE State = CHARACTER_STATE.NONE;
     private SpriteRenderer DuckSprite;
     private float DuckAnimationLength = 0;
-    private float DuckSingTimer = 0;
     private float DuckStunTimer = 0;
     private bool HasDuckSung = false;
 
     private const int IdleAnimationIndex = 0;
     private const int DuckAnimationIndex = 1;
+
+    private AudioSource Audio;
 
 
     // Start is called before the first frame update
@@ -46,7 +54,6 @@ public class Duck : MonoBehaviour
 
         DuckSprite = GetComponent<SpriteRenderer>();
 
-        DuckSingTimer = SingDuration;
         DuckStunTimer = StunDuration;
 
         SingIcon1.SetActive(false);
@@ -60,6 +67,8 @@ public class Duck : MonoBehaviour
         EventManager.OnSingAction2 += SetIsDuckSinging2;
         EventManager.OnSingAction3 += SetIsDuckSinging3;
         EventManager.OnSingAction4 += SetIsDuckSinging4;
+
+        Audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -83,14 +92,7 @@ public class Duck : MonoBehaviour
             case CHARACTER_STATE.SING:
                 {
                     DuckAnimator.SetBool("IsSinging", true);
-                    DuckSingTimer -= Time.deltaTime;
-                    if(DuckSingTimer <= 0 && !HasDuckSung)
-                    {                 
-                        State = CHARACTER_STATE.IDLE;
-                        DuckSingTimer = SingDuration;
-                        HasDuckSung = true;
-                    }
-                 
+                               
                     break;
                 }
             case CHARACTER_STATE.DUCK:
@@ -194,6 +196,7 @@ public class Duck : MonoBehaviour
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon1.SetActive(true);
+        Audio.PlayOneShot(Sing1Clip, Volumn);
         Debug.Log("Duck set to SING");
     }
     /**********************************************************************/
@@ -202,6 +205,7 @@ public class Duck : MonoBehaviour
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon2.SetActive(true);
+        Audio.PlayOneShot(Sing2Clip, Volumn);
         Debug.Log("Duck set to SING");
     }
     /**********************************************************************/
@@ -210,6 +214,7 @@ public class Duck : MonoBehaviour
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon3.SetActive(true);
+        Audio.PlayOneShot(Sing3Clip, Volumn);
         Debug.Log("Duck set to SING");
     }
     /**********************************************************************/
@@ -218,6 +223,7 @@ public class Duck : MonoBehaviour
         HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon4.SetActive(true);
+        Audio.PlayOneShot(Sing4Clip, Volumn);
         Debug.Log("Duck set to SING");
     }
 
@@ -262,5 +268,15 @@ public class Duck : MonoBehaviour
         return State == CHARACTER_STATE.SING;
     }
 
-    
+    /**********************************************************************/
+    public void DoneSinging()
+    {
+        if (!HasDuckSung)
+        {
+            State = CHARACTER_STATE.IDLE;
+            HasDuckSung = true;
+        }
+    }
+
+
 }
