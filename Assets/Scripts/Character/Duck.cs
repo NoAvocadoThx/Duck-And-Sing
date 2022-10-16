@@ -16,6 +16,7 @@ public class Duck : MonoBehaviour
     // public
     public Animator DuckAnimator;
     public Kid KidObject;
+    public Prompt PromptObject;
     public GameObject SingIcon1;
     public GameObject SingIcon2;
     public GameObject SingIcon3;
@@ -34,6 +35,7 @@ public class Duck : MonoBehaviour
     private float DuckAnimationLength = 0;
     private float DuckStunTimer = 0;
     private bool HasDuckSung = false;
+ 
 
     private const int IdleAnimationIndex = 0;
     private const int DuckAnimationIndex = 1;
@@ -191,41 +193,45 @@ public class Duck : MonoBehaviour
     private void SetIsDuckSinging1()
     {
         if (State == CHARACTER_STATE.SING) return; // if we are already in sing state, we can't sing
-        HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon1.SetActive(true);
         Audio.PlayOneShot(Sing1Clip, Volumn);
+        if (PromptObject != null) PromptObject.SetPromptNoteIndex(1);
         Debug.Log("Duck set to SING");
+        HasDuckSung = true;
     }
     /**********************************************************************/
     private void SetIsDuckSinging2()
     {
         if (State == CHARACTER_STATE.SING) return;
-        HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon2.SetActive(true);
         Audio.PlayOneShot(Sing2Clip, Volumn);
+        if (PromptObject != null) PromptObject.SetPromptNoteIndex(2);
         Debug.Log("Duck set to SING");
+        HasDuckSung = true;
     }
     /**********************************************************************/
     private void SetIsDuckSinging3()
     {
         if (State == CHARACTER_STATE.SING) return;
-        HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon3.SetActive(true);
         Audio.PlayOneShot(Sing3Clip, Volumn);
+        if (PromptObject != null) PromptObject.SetPromptNoteIndex(3);
         Debug.Log("Duck set to SING");
+        HasDuckSung = true;
     }
     /**********************************************************************/
     private void SetIsDuckSinging4()
     {
         if (State == CHARACTER_STATE.SING) return;
-        HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon4.SetActive(true);
         Audio.PlayOneShot(Sing4Clip, Volumn);
+        if (PromptObject != null) PromptObject.SetPromptNoteIndex(4);
         Debug.Log("Duck set to SING");
+        HasDuckSung = true;
     }
 
     /**********************************************************************/
@@ -272,12 +278,18 @@ public class Duck : MonoBehaviour
     /**********************************************************************/
     public void DoneSinging()
     {
-        if (!HasDuckSung)
+        if (HasDuckSung)
         {
             State = CHARACTER_STATE.IDLE;
-            HasDuckSung = true;
+            HasDuckSung = false;
         }
     }
 
+    /**********************************************************************/
+    public bool HasDuckActuallySung()
+    {
+        return HasDuckSung;
+    }
 
+   
 }
