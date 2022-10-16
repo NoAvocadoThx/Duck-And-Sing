@@ -11,7 +11,6 @@ public class Duck : MonoBehaviour
     }
 
 
-    [SerializeField] private float SingDuration = 1.5f;
     [SerializeField] private float StunDuration = 1f;
 
     // public
