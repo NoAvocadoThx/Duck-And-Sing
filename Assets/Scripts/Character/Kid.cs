@@ -109,8 +109,11 @@ public class Kid : MonoBehaviour
             ShouldThrow = false;
         }
 
-       
 
+        if (AngerValue >= 100)
+        {
+            GameManager.Instance.GameEnd();
+        }
     }
 
     /**********************************************************************/
