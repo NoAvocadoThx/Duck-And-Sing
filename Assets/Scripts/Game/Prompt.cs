@@ -103,7 +103,7 @@ public class Prompt : MonoBehaviour
         }
 
         // we subscribe to the event only when our prompt is showing
-        if(_IsPromptShowing && !HasSubscribedToEvent)
+        if(_IsPromptShowing && !HasSubscribedToEvent )
         {
             EventManager.OnSingAction1 += PressedSingAction1;
             EventManager.OnSingAction2 += PressedSingAction2;
@@ -169,7 +169,8 @@ public class Prompt : MonoBehaviour
     /**********************************************************************/
     private void PressedSingAction1()
     {
-        PlayerInputNoteIndex = 1;
+        if (!DuckObject.HasDuckActuallySung()) return;
+        //PlayerInputNoteIndex = 1;
         HasPlayerSing = true;
         Debug.Log("prompt 1");
     }
@@ -177,7 +178,8 @@ public class Prompt : MonoBehaviour
     /**********************************************************************/
     private void PressedSingAction2()
     {
-        PlayerInputNoteIndex = 2;
+        if (!DuckObject.HasDuckActuallySung()) return;
+        //PlayerInputNoteIndex = 2;
         HasPlayerSing = true;
         Debug.Log("prompt 2");
     }
@@ -185,7 +187,8 @@ public class Prompt : MonoBehaviour
     /**********************************************************************/
     private void PressedSingAction3()
     {
-        PlayerInputNoteIndex = 3;
+        if (!DuckObject.HasDuckActuallySung()) return;
+        //PlayerInputNoteIndex = 3;
         HasPlayerSing = true;
         Debug.Log("prompt 3");
     }
@@ -193,7 +196,8 @@ public class Prompt : MonoBehaviour
     /**********************************************************************/
     private void PressedSingAction4()
     {
-        PlayerInputNoteIndex = 4;
+        if (!DuckObject.HasDuckActuallySung()) return;
+       // PlayerInputNoteIndex = 4;
         HasPlayerSing = true;
         Debug.Log("prompt 4");
     }
@@ -204,6 +208,11 @@ public class Prompt : MonoBehaviour
         return _IsPromptShowing;
     }
 
-   
+    /**********************************************************************/
+    public void SetPromptNoteIndex(int Index)
+    {
+        PlayerInputNoteIndex = Index;
+    }
+
 
 }

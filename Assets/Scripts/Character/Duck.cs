@@ -14,17 +14,23 @@ public class Duck : MonoBehaviour
     [SerializeField] private float StunDuration = 1f;
 
     // public
+    [Header("Game Objects")]
     public Animator DuckAnimator;
     public Kid KidObject;
+    public Prompt PromptObject;
+    [Header("Icons")]
     public GameObject SingIcon1;
     public GameObject SingIcon2;
     public GameObject SingIcon3;
     public GameObject SingIcon4;
+    public GameObject WinningIcons;
 
+    [Header("Audio")]
     public AudioClip Sing1Clip;
     public AudioClip Sing2Clip;
     public AudioClip Sing3Clip;
     public AudioClip Sing4Clip;
+    public AudioClip WinningSound;
 
     public float Volumn;
 
@@ -34,6 +40,7 @@ public class Duck : MonoBehaviour
     private float DuckAnimationLength = 0;
     private float DuckStunTimer = 0;
     private bool HasDuckSung = false;
+ 
 
     private const int IdleAnimationIndex = 0;
     private const int DuckAnimationIndex = 1;
@@ -58,6 +65,7 @@ public class Duck : MonoBehaviour
         SingIcon2.SetActive(false);
         SingIcon3.SetActive(false);
         SingIcon4.SetActive(false);
+        WinningIcons.SetActive(false);
 
         State = CHARACTER_STATE.IDLE;
 
@@ -191,41 +199,45 @@ public class Duck : MonoBehaviour
     private void SetIsDuckSinging1()
     {
         if (State == CHARACTER_STATE.SING) return; // if we are already in sing state, we can't sing
-        HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon1.SetActive(true);
         Audio.PlayOneShot(Sing1Clip, Volumn);
+        if (PromptObject != null) PromptObject.SetPromptNoteIndex(1);
         Debug.Log("Duck set to SING");
+        HasDuckSung = true;
     }
     /**********************************************************************/
     private void SetIsDuckSinging2()
     {
         if (State == CHARACTER_STATE.SING) return;
-        HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon2.SetActive(true);
         Audio.PlayOneShot(Sing2Clip, Volumn);
+        if (PromptObject != null) PromptObject.SetPromptNoteIndex(2);
         Debug.Log("Duck set to SING");
+        HasDuckSung = true;
     }
     /**********************************************************************/
     private void SetIsDuckSinging3()
     {
         if (State == CHARACTER_STATE.SING) return;
-        HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon3.SetActive(true);
         Audio.PlayOneShot(Sing3Clip, Volumn);
+        if (PromptObject != null) PromptObject.SetPromptNoteIndex(3);
         Debug.Log("Duck set to SING");
+        HasDuckSung = true;
     }
     /**********************************************************************/
     private void SetIsDuckSinging4()
     {
         if (State == CHARACTER_STATE.SING) return;
-        HasDuckSung = false;
         State = CHARACTER_STATE.SING;
         SingIcon4.SetActive(true);
         Audio.PlayOneShot(Sing4Clip, Volumn);
+        if (PromptObject != null) PromptObject.SetPromptNoteIndex(4);
         Debug.Log("Duck set to SING");
+        HasDuckSung = true;
     }
 
     /**********************************************************************/
@@ -242,7 +254,8 @@ public class Duck : MonoBehaviour
     {
         State = CHARACTER_STATE.NONE;
         DuckAnimationLength = 0;
-
+        AnimationClip[] Clips = DuckAnimator.runtimeAnimatorController.animationClips;
+        Clips[3].wrapMode = WrapMode.Once;
     }
 
     /**********************************************************************/
@@ -272,12 +285,27 @@ public class Duck : MonoBehaviour
     /**********************************************************************/
     public void DoneSinging()
     {
-        if (!HasDuckSung)
+        if (HasDuckSung)
         {
             State = CHARACTER_STATE.IDLE;
-            HasDuckSung = true;
+            HasDuckSung = false;
         }
     }
 
+    /**********************************************************************/
+    public bool HasDuckActuallySung()
+    {
+        return HasDuckSung;
+    }
+    /**********************************************************************/
+    public void DuckWin()
+    {
+        AnimationClip[] Clips = DuckAnimator.runtimeAnimatorController.animationClips;
+        Clips[3].wrapMode = WrapMode.Loop;
+        State = CHARACTER_STATE.SING;
+        DuckAnimator.SetBool("IsSinging", true);
+        Audio.PlayOneShot(WinningSound, Volumn);
+        WinningIcons.SetActive(true);
+    }
 
 }
