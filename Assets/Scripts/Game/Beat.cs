@@ -9,19 +9,32 @@ public class Beat : MonoBehaviour
     [SerializeField] internal float beat;
    
     private AudioSource BGMusic;
+    private bool IsBGMPlaying = false;
 
     // Start is called before the first frame update
     void Start()
     {
         BGMusic = GetComponent<AudioSource>();
-        
-  
-       
+        IsBGMPlaying = false;
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.IsGameStarted() && !IsBGMPlaying)
+        {
+            BGMusic.Play();
+            IsBGMPlaying = true;
+        }
+
+        if(GameManager.Instance.IsGameEnded() && IsBGMPlaying )
+        {
+            BGMusic.Stop();
+            IsBGMPlaying = false;
+        }
 
         ChangeBPM();
 

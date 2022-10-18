@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Button startButton;
     public Button EndButton;
 
+    private bool GameHasStarted = false;
     private bool GameHasEnded = false;
     private bool IsFromRestart = false;
     /**********************************************************************/
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         IsFromRestart = true;
+
     }
     /**********************************************************************/
     
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         GameHasEnded = false;
+        GameHasStarted = false;
         if (IsFromRestart)
         {
             StartGame();
@@ -78,5 +81,16 @@ public class GameManager : MonoBehaviour
 
         // Hides the button
         startButton.gameObject.SetActive(false);
+        GameHasStarted = true;
+    }
+
+    public bool IsGameStarted()
+    {
+        return GameHasStarted;
+    }
+
+    public bool IsGameEnded()
+    {
+        return GameHasEnded;
     }
 }

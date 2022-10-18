@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public enum ANGER_LEVEL { NONE, LOW, MEDIUM, HIGH, FEVER };
@@ -15,8 +16,13 @@ public class Kid : MonoBehaviour
     // public 
     public List<GameObject> GarbageObjectPool;
     public GameObject DuckObject;
-    
 
+    public GameObject AngrySymbol1;
+    public GameObject AngrySymbol2;
+    public GameObject AngrySymbol3;
+    public GameObject AngrySymbol4;
+
+    public AudioSource ThrowAudio;
     // private 
     private float ThrowTimer;
     private bool ShouldThrow;
@@ -35,6 +41,11 @@ public class Kid : MonoBehaviour
         GarbageIndex = 0;
         GarbageCount = GarbageObjectPool.Count;
         KidAngryLevel = ANGER_LEVEL.NONE;
+
+        AngrySymbol1.SetActive(false);
+        AngrySymbol2.SetActive(false);
+        AngrySymbol3.SetActive(false);
+        AngrySymbol4.SetActive(false);
     }
 
     // Update is called once per frame
@@ -109,13 +120,38 @@ public class Kid : MonoBehaviour
             ShouldThrow = false;
         }
 
+        HandleAngrySymbols();
 
         if (AngerValue >= 100)
         {
             GameManager.Instance.GameEnd();
         }
     }
-
+    /**********************************************************************/
+    private void HandleAngrySymbols()
+    {
+        switch (KidAngryLevel)
+        {
+            case ANGER_LEVEL.NONE:
+                break;
+            case ANGER_LEVEL.LOW:
+                AngrySymbol1.SetActive(true);
+                break;
+            case ANGER_LEVEL.MEDIUM:
+                AngrySymbol2.SetActive(true);
+                break;
+            case ANGER_LEVEL.HIGH:
+                AngrySymbol3.SetActive(true);
+                break;
+            case ANGER_LEVEL.FEVER:
+                AngrySymbol4.SetActive(true);
+                break;
+                default:
+                break;        
+        }    
+            
+       
+    }
     /**********************************************************************/
     public void IncreaseAngerValue(bool HasBonus = false)
     {
@@ -144,5 +180,6 @@ public class Kid : MonoBehaviour
     {
         Instantiate(GarbageObjectPool[Index], transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 180f));
         GarbageObjectPool[Index].GetComponent<Garbage>().Setup(gameObject, DuckObject, DuckObject.GetComponent<Duck>());
+        ThrowAudio.Play();
     }
 }
