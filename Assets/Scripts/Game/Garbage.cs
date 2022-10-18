@@ -79,14 +79,13 @@ public class Garbage : MonoBehaviour
         {
             Destroy(gameObject);
 
-            // TODO
-            if (DuckObject != null && DuckObject.GetIsDucking())
-            {
-
-            }
+        }
+        if(GameManager.Instance.IsGameEnded())
+        {
+            this.gameObject.SetActive(false);
         }
 
-        
+
 
     }
 

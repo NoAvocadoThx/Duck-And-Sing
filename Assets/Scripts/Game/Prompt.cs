@@ -126,6 +126,18 @@ public class Prompt : MonoBehaviour
         {
             KidObject.IncreaseAngerValue(true);
         }
+
+        if(GameManager.Instance.IsGameEnded())
+        {
+            // clear all current prompts and reset stuff
+            for (int i = 0; i < PromptList.Count; i++)
+            {
+                if (PromptList[i] != null)
+                {
+                    PromptList[i].SetActive(false);
+                }
+            }
+        }
     }
 
     /**********************************************************************/
