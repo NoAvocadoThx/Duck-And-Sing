@@ -24,7 +24,7 @@ public class Kid : MonoBehaviour
     private int GarbageIndex;
     private int GarbageCount;
 
-    private ANGER_LEVEL KidAngryLevel;
+    internal ANGER_LEVEL KidAngryLevel;
     // Start is called before the first frame update
     /**********************************************************************/
     void Start()

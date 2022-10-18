@@ -14,7 +14,7 @@ public class Garbage : MonoBehaviour
     public ANGER_LEVEL AngerLevel;
     public bool IsBolt = false;
 
-    [SerializeField] private Beat B;
+    [SerializeField] private Beat BeatObject;
     [SerializeField] private float ThrowSpeed = 6.0f;
     [SerializeField] private float ThrowHeightFactor = 2.0f;
     // private
@@ -34,10 +34,10 @@ public class Garbage : MonoBehaviour
     void Start()
     {
        
-        B = FindObjectOfType<Beat>();
-        if (B != null)
+        BeatObject = FindObjectOfType<Beat>();
+        if (BeatObject != null)
         {
-            ThrowSpeed = Random.Range(6f * B.beat, 10f * B.beat);
+            ThrowSpeed = Random.Range(6f * BeatObject.beat, 10f * BeatObject.beat);
             ThrowSpeed = Mathf.Min(6, ThrowSpeed);
         }
 
