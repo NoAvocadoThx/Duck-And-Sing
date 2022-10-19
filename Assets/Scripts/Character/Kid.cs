@@ -136,14 +136,26 @@ public class Kid : MonoBehaviour
                 break;
             case ANGER_LEVEL.LOW:
                 AngrySymbol1.SetActive(true);
+                AngrySymbol2.SetActive(false);
+                AngrySymbol3.SetActive(false);
+                AngrySymbol4.SetActive(false);
                 break;
             case ANGER_LEVEL.MEDIUM:
+                AngrySymbol1.SetActive(true);
                 AngrySymbol2.SetActive(true);
+                AngrySymbol3.SetActive(false);
+                AngrySymbol4.SetActive(false);
                 break;
             case ANGER_LEVEL.HIGH:
+                AngrySymbol1.SetActive(true);
+                AngrySymbol2.SetActive(true);
                 AngrySymbol3.SetActive(true);
+                AngrySymbol4.SetActive(false);
                 break;
             case ANGER_LEVEL.FEVER:
+                AngrySymbol1.SetActive(true);
+                AngrySymbol2.SetActive(true);
+                AngrySymbol3.SetActive(true);
                 AngrySymbol4.SetActive(true);
                 break;
                 default:

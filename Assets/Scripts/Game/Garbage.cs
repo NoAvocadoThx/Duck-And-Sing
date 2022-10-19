@@ -17,6 +17,7 @@ public class Garbage : MonoBehaviour
     [SerializeField] private Beat BeatObject;
     [SerializeField] private float ThrowSpeed = 6.0f;
     [SerializeField] private float ThrowHeightFactor = 2.0f;
+    [SerializeField] private float ThrowAngerMultiplier = 1.4f;
     // private
     private float OriginX;
     private float TargetX;
@@ -37,7 +38,7 @@ public class Garbage : MonoBehaviour
         BeatObject = FindObjectOfType<Beat>();
         if (BeatObject != null)
         {
-            ThrowSpeed = Random.Range(6f * BeatObject.beat, 10f * BeatObject.beat);
+            ThrowSpeed = Random.Range(6f * BeatObject.beat * ThrowAngerMultiplier, 10f * BeatObject.beat * ThrowAngerMultiplier);
             ThrowSpeed = Mathf.Min(6, ThrowSpeed);
         }
 
