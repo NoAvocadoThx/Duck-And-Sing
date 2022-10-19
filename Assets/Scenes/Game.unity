@@ -830,6 +830,9 @@ MonoBehaviour:
   - {fileID: 2445400967855376460, guid: 7931b81b8690d784b99136f7728694f5, type: 3}
   - {fileID: 4988166285563120277, guid: 00d498428296762419a2873626d96815, type: 3}
   - {fileID: 6611783622883940957, guid: 8944bfad9d08b784f963cbd9b048e308, type: 3}
+  - {fileID: 3640879310313979946, guid: 2bb39d1dbc53d984fa69f11d04942be2, type: 3}
+  - {fileID: 7544840083469347954, guid: 195cbba9ed5bea449980b569342eec1b, type: 3}
+  - {fileID: 7206886043808920643, guid: de5ecc955c270094cb3facef1549d1c9, type: 3}
   DuckObject: {fileID: 205158750}
   AngrySymbol1: {fileID: 1765059894}
   AngrySymbol2: {fileID: 1600050519}
