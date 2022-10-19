@@ -17,11 +17,15 @@ public class Kid : MonoBehaviour
     public List<GameObject> GarbageObjectPool;
     public GameObject DuckObject;
 
+    [Header("Overlays")]
     public GameObject AngrySymbol1;
     public GameObject AngrySymbol2;
     public GameObject AngrySymbol3;
     public GameObject AngrySymbol4;
+    public GameObject AngryGas1;
+    public GameObject AngryGas2;
 
+    [Header("Audio")]
     public AudioSource ThrowAudio;
     // private 
     private float ThrowTimer;
@@ -46,6 +50,8 @@ public class Kid : MonoBehaviour
         AngrySymbol2.SetActive(false);
         AngrySymbol3.SetActive(false);
         AngrySymbol4.SetActive(false);
+        AngryGas1.SetActive(false);
+        AngryGas2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -145,18 +151,24 @@ public class Kid : MonoBehaviour
                 AngrySymbol2.SetActive(true);
                 AngrySymbol3.SetActive(false);
                 AngrySymbol4.SetActive(false);
+                AngryGas1.SetActive(false);
+                AngryGas2.SetActive(false);
                 break;
             case ANGER_LEVEL.HIGH:
                 AngrySymbol1.SetActive(true);
                 AngrySymbol2.SetActive(true);
                 AngrySymbol3.SetActive(true);
                 AngrySymbol4.SetActive(false);
+                AngryGas1.SetActive(true);
+                AngryGas2.SetActive(false);
                 break;
             case ANGER_LEVEL.FEVER:
                 AngrySymbol1.SetActive(true);
                 AngrySymbol2.SetActive(true);
                 AngrySymbol3.SetActive(true);
                 AngrySymbol4.SetActive(true);
+                AngryGas1.SetActive(true);
+                AngryGas2.SetActive(true);
                 break;
                 default:
                 break;        
