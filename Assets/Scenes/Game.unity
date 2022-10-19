@@ -1339,7 +1339,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 548269892}
-  m_RootOrder: 39
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &417406814
 SpriteRenderer:
@@ -1661,9 +1661,9 @@ Transform:
   - {fileID: 1540169039}
   - {fileID: 1553410013}
   - {fileID: 1088527770}
-  - {fileID: 683597339}
   - {fileID: 1509492008}
   - {fileID: 417406813}
+  - {fileID: 683597339}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2061,7 +2061,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 548269892}
-  m_RootOrder: 37
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &683597340
 SpriteRenderer:
@@ -2508,7 +2508,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ecc204495234d40f091d828790c56287, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4630,7 +4630,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 548269892}
-  m_RootOrder: 38
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1509492009
 SpriteRenderer:
@@ -6667,9 +6667,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 398137208472800575, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 398137208472800575, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 398137208472800575, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8fd38526df032d44d836a8ef9611c86b, type: 3}
+      objectReference: {fileID: 21300000, guid: 8c0a6837d3dc9c54e9011531d0394886, type: 3}
     - target: {fileID: 398137208472800575, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -6774,6 +6782,10 @@ PrefabInstance:
       propertyPath: WinningSound
       value: 
       objectReference: {fileID: 8300000, guid: 388e2cc649037e845abfb38b0f365185, type: 3}
+    - target: {fileID: 3379139453541535290, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3379139453541535291, guid: cf9bfdadc97475b43a9cbf205e7ea20b, type: 3}
       propertyPath: m_UpdateMode
       value: 2
